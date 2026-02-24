@@ -1,0 +1,41 @@
+name: "Setup Node and Cache Dependencies"
+description: "Sets up Node.js and caches node_modules"
+inputs:
+  cache-name:
+    description: "Cache name"
+    required: true
+  node-version:
+    description: "Node.js version"
+    required: false
+    default: "24"
+outputs:
+  cache-hit:
+    description: "Cache hit status"
+    value: ${{ steps.cache-nodemodules.outputs.cache-hit }}
+runs:
+  using: "composite"
+  steps:
+    - name: Setup Node.js
+      uses: actions/setup-node@v6.1.0
+      with:
+        node-version: ${{ inputs.node-version }}
+
+    - name: Setup pnpm
+      shell: bash
+      run: |
+        corepack enable
+        corepack prepare pnpm@9.15.2 --activate
+
+    - name: Cache node modules
+      id: cache-nodemodules
+      uses: actions/cache@v5.0.1
+      with:
+        path: node_modules
+        key: ${{ runner.os }}-build-${{ inputs.cache-name }}-${{ hashFiles('**/pnpm-lock.yaml', '**/*.patch') }}
+        restore-keys: |
+          ${{ runner.os }}-build-${{ inputs.cache-name }}-${{ hashFiles('**/pnpm-lock.yaml', '**/*.patch') }}
+
+    - name: Install Dependencies
+      shell: bash
+      if: steps.cache-nodemodules.outputs.cache-hit != 'true'
+      run: pnpm install --frozen-lockfile
