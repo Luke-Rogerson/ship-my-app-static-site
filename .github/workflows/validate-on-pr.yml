@@ -1,0 +1,42 @@
+name: Validate on PR
+run-name: Validate PR ${{ github.event.number }}
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read # This is required for actions/checkout
+
+jobs:
+  type-check:
+    name: Type Checking
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6.0.2
+      - name: Setup Node and Cache Dependencies
+        uses: ./.github/actions/setup-node-cache-deps
+        with:
+          cache-name: "cache-node-modules-validate-on-pr"
+      - run: pnpm typecheck
+
+  lint:
+    name: Linting
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6.0.2
+      - name: Setup Node and Cache Dependencies
+        uses: ./.github/actions/setup-node-cache-deps
+        with:
+          cache-name: "cache-node-modules-validate-on-pr"
+      - run: pnpm lint
+
+  test:
+    name: Testing
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6.0.2
+      - name: Setup Node and Cache Dependencies
+        uses: ./.github/actions/setup-node-cache-deps
+        with:
+          cache-name: "cache-node-modules-validate-on-pr"
+      - run: pnpm test

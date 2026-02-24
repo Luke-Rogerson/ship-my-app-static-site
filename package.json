@@ -10,6 +10,7 @@
     "typecheck": "tsc -p tsconfig.app.json --noEmit",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
+    "test": "echo 'Add tests!'",
     "prepare": "husky"
   },
   "dependencies": {
