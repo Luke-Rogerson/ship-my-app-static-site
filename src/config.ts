@@ -17,5 +17,6 @@ export const NAV_ITEMS = [
   { label: 'Blueprint', href: '#blueprint' },
   { label: 'Packages', href: '#packages' },
   { label: 'How it works', href: '#how-it-works' },
+  { label: 'Who am I', href: '#about' },
   { label: 'Contact', href: '#contact' },
 ] as const
