@@ -1,6 +1,7 @@
 import { Linkedin, Send } from "lucide-react";
 import { CONTACT_LINKS } from "../config";
 import { ContactForm } from "./ContactForm";
+import { Section } from "./Section";
 
 const directLinks = [
   {
@@ -21,49 +22,41 @@ const directLinks = [
 
 export function Contact() {
   return (
-    <section
-      id="contact"
-      className="bg-gray-50 px-4 py-16 sm:px-6 dark:bg-void-900"
-    >
-      <div className="mx-auto max-w-4xl">
-        <h2 className="text-2xl font-bold text-gray-900 sm:text-3xl dark:text-white">
-          Get in touch
-        </h2>
-        <p className="mt-3 text-gray-600 dark:text-gray-400">
-          Send your stack + where you're stuck + the #1 flow that must work.
-          I'll reply with the fastest path to a 48h triage and a rough cost
-          band.
-        </p>
+    <Section id="contact" title="Get in touch" shaded>
+      <p className="mt-3 text-gray-600 dark:text-gray-400">
+        Send your stack + where you're stuck + the #1 flow that must work.
+        I'll reply with the fastest path to a 48h triage and a rough cost
+        band.
+      </p>
 
-        <div className="mt-10 grid gap-10 md:grid-cols-2">
-          <div>
-            <h3 className="mb-4 text-lg font-semibold text-gray-900 dark:text-white">
-              Send a message
-            </h3>
-            <ContactForm />
-          </div>
+      <div className="mt-10 grid gap-10 md:grid-cols-2">
+        <div>
+          <h3 className="mb-4 text-lg font-semibold text-gray-900 dark:text-white">
+            Send a message
+          </h3>
+          <ContactForm />
+        </div>
 
-          <div>
-            <h3 className="mb-4 text-lg font-semibold text-gray-900 dark:text-white">
-              Or reach out directly
-            </h3>
-            <div className="space-y-3">
-              {directLinks.map(({ href, icon: Icon, label, light, dark }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`flex items-center gap-3 rounded-lg px-5 py-3 text-sm font-semibold text-white transition-all ${light} ${dark}`}
-                >
-                  <Icon size={20} />
-                  {label}
-                </a>
-              ))}
-            </div>
+        <div>
+          <h3 className="mb-4 text-lg font-semibold text-gray-900 dark:text-white">
+            Or reach out directly
+          </h3>
+          <div className="space-y-3">
+            {directLinks.map(({ href, icon: Icon, label, light, dark }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`flex items-center gap-3 rounded-lg px-5 py-3 text-sm font-semibold text-white transition-all ${light} ${dark}`}
+              >
+                <Icon size={20} />
+                {label}
+              </a>
+            ))}
           </div>
         </div>
       </div>
-    </section>
+    </Section>
   );
 }

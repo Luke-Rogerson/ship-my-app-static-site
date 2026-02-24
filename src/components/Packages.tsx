@@ -1,4 +1,5 @@
 import { Search, Zap, ShieldCheck } from "lucide-react";
+import { Section } from "./Section";
 
 const packages = [
   {
@@ -84,65 +85,57 @@ const accentMap = {
 
 export function Packages() {
   return (
-    <section
-      id="packages"
-      className="bg-gray-50 px-4 py-16 sm:px-6 dark:bg-void-900"
-    >
-      <div className="mx-auto max-w-6xl">
-        <h2 className="text-center text-2xl font-bold text-gray-900 sm:text-3xl dark:text-white">
-          Packages
-        </h2>
-        <div className="mt-10 grid gap-6 lg:grid-cols-3">
-          {packages.map((pkg) => {
-            const Icon = pkg.icon;
-            const a = accentMap[pkg.accent];
-            return (
-              <div
-                key={pkg.name}
-                className={`flex flex-col rounded-xl border p-6 transition-colors ${
-                  pkg.featured
-                    ? `border-brand-600 bg-white shadow-lg dark:bg-void-800 ${a.border} ${a.borderHover} ${a.glow}`
-                    : `border-gray-200 bg-white dark:bg-void-800 ${a.border} ${a.borderHover}`
-                }`}
-              >
-                <div className="flex items-center gap-3">
-                  <Icon size={22} className={`text-brand-600 ${a.icon}`} />
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                    {pkg.name}
-                  </h3>
-                </div>
-                <p className="mt-1 font-mono text-sm text-gray-500 dark:text-gray-500">
-                  {pkg.timeline}
-                </p>
-
-                {"goal" in pkg && pkg.goal && (
-                  <p className="mt-3 text-sm font-medium text-gray-700 dark:text-gray-300">
-                    {pkg.goal}
-                  </p>
-                )}
-
-                <ul className="mt-4 flex-1 space-y-2">
-                  {pkg.description.map((item) => (
-                    <li
-                      key={item}
-                      className="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-400"
-                    >
-                      <span
-                        className={`mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-600 ${a.dot}`}
-                      />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-
-                <p className="mt-4 border-t border-gray-100 pt-4 font-mono text-sm font-medium text-gray-800 dark:border-gray-800 dark:text-gray-200">
-                  {pkg.price}
-                </p>
+    <Section id="packages" title="Packages" shaded maxWidth="6xl" centerTitle>
+      <div className="mt-10 grid gap-6 lg:grid-cols-3">
+        {packages.map((pkg) => {
+          const Icon = pkg.icon;
+          const a = accentMap[pkg.accent];
+          return (
+            <div
+              key={pkg.name}
+              className={`flex flex-col rounded-xl border p-6 transition-colors ${
+                pkg.featured
+                  ? `border-brand-600 bg-white shadow-lg dark:bg-void-800 ${a.border} ${a.borderHover} ${a.glow}`
+                  : `border-gray-200 bg-white dark:bg-void-800 ${a.border} ${a.borderHover}`
+              }`}
+            >
+              <div className="flex items-center gap-3">
+                <Icon size={22} className={`text-brand-600 ${a.icon}`} />
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                  {pkg.name}
+                </h3>
               </div>
-            );
-          })}
-        </div>
+              <p className="mt-1 font-mono text-sm text-gray-500 dark:text-gray-500">
+                {pkg.timeline}
+              </p>
+
+              {"goal" in pkg && pkg.goal && (
+                <p className="mt-3 text-sm font-medium text-gray-700 dark:text-gray-300">
+                  {pkg.goal}
+                </p>
+              )}
+
+              <ul className="mt-4 flex-1 space-y-2">
+                {pkg.description.map((item) => (
+                  <li
+                    key={item}
+                    className="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-400"
+                  >
+                    <span
+                      className={`mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-600 ${a.dot}`}
+                    />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+
+              <p className="mt-4 border-t border-gray-100 pt-4 font-mono text-sm font-medium text-gray-800 dark:border-gray-800 dark:text-gray-200">
+                {pkg.price}
+              </p>
+            </div>
+          );
+        })}
       </div>
-    </section>
+    </Section>
   );
 }

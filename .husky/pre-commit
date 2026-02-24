@@ -1,0 +1,13 @@
+echo "🐊 Running pre-commit hooks...\n"
+
+branch=$(git symbolic-ref --short HEAD)
+if [ "$branch" = "main" ] || [ "$branch" = "master" ]; then
+  echo "❌ Direct commits to $branch are not allowed!"
+  exit 1
+fi
+
+echo "👾 Running type checking..."
+npm run typecheck
+
+echo "🦒 Running linting..."
+npm run lint

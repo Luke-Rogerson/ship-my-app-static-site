@@ -1,11 +1,12 @@
-import { BRAND_NAME, CONTACT_LINKS } from "../config";
+import { CONTACT_LINKS } from "../config";
+import { BrandLogo } from "./BrandLogo";
 
 export function Footer() {
   return (
     <footer className="border-t border-gray-200 bg-white px-4 py-8 sm:px-6 dark:border-neon-cyan/10 dark:bg-void-950">
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 text-sm text-gray-500 sm:flex-row dark:text-gray-500">
         <p className="font-mono text-xs">
-          {">"} {BRAND_NAME}
+          <BrandLogo />
         </p>
         <nav className="flex gap-4" aria-label="Footer links">
           <a

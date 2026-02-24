@@ -1,7 +1,46 @@
 import { Menu, Moon, Sun, X } from "lucide-react";
 import { useState } from "react";
-import { BRAND_NAME, NAV_ITEMS } from "../config";
+import { NAV_ITEMS } from "../config";
 import { useDarkMode } from "../hooks/useDarkMode";
+import { BrandLogo } from "./BrandLogo";
+
+function ThemeToggle({
+  isDark,
+  toggle,
+  className,
+}: {
+  isDark: boolean;
+  toggle: () => void;
+  className?: string;
+}) {
+  return (
+    <button
+      onClick={toggle}
+      aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+      className={`rounded-md p-2 text-gray-500 ${className ?? ""}`}
+    >
+      {isDark ? <Sun size={18} /> : <Moon size={18} />}
+    </button>
+  );
+}
+
+function ContactNav({
+  className,
+  onClick,
+}: {
+  className?: string;
+  onClick?: () => void;
+}) {
+  return (
+    <a
+      href="#contact"
+      onClick={onClick}
+      className={`rounded-md border border-neon-cyan/50 bg-neon-cyan/10 px-4 py-2 text-sm font-semibold text-gray-900 dark:text-neon-cyan ${className ?? ""}`}
+    >
+      Contact
+    </a>
+  );
+}
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -14,7 +53,7 @@ export function Header() {
           href="#"
           className="font-mono text-lg font-bold tracking-tight text-gray-900 dark:text-neon-cyan dark:text-glow-cyan"
         >
-          {">"} {BRAND_NAME}
+          <BrandLogo />
         </a>
 
         <nav
@@ -33,30 +72,16 @@ export function Header() {
         </nav>
 
         <div className="hidden items-center gap-2 md:flex">
-          <button
-            onClick={toggle}
-            aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
-            className="rounded-md p-2 text-gray-500 transition-colors hover:bg-gray-100 hover:text-gray-900 dark:text-gray-500 dark:hover:bg-neon-cyan/10 dark:hover:text-neon-cyan"
-          >
-            {isDark ? <Sun size={18} /> : <Moon size={18} />}
-          </button>
-
-          <a
-            href="#contact"
-            className="ml-2 rounded-md border border-neon-cyan/50 bg-neon-cyan/10 px-4 py-2 text-sm font-semibold text-gray-900 transition-all hover:bg-brand-600 hover:text-white dark:text-neon-cyan dark:hover:bg-neon-cyan/20 dark:hover:glow-cyan"
-          >
-            Contact
-          </a>
+          <ThemeToggle
+            isDark={isDark}
+            toggle={toggle}
+            className="transition-colors hover:bg-gray-100 hover:text-gray-900 dark:text-gray-500 dark:hover:bg-neon-cyan/10 dark:hover:text-neon-cyan"
+          />
+          <ContactNav className="ml-2 transition-all hover:bg-brand-600 hover:text-white dark:hover:bg-neon-cyan/20 dark:hover:glow-cyan" />
         </div>
 
         <div className="flex items-center gap-2 md:hidden">
-          <button
-            onClick={toggle}
-            aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
-            className="rounded-md p-2 text-gray-500 dark:text-gray-400"
-          >
-            {isDark ? <Sun size={18} /> : <Moon size={18} />}
-          </button>
+          <ThemeToggle isDark={isDark} toggle={toggle} className="dark:text-gray-400" />
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label={menuOpen ? "Close menu" : "Open menu"}
@@ -82,14 +107,7 @@ export function Header() {
               {item.label}
             </a>
           ))}
-          <div className="mt-3 flex gap-3"></div>
-          <a
-            href="#contact"
-            onClick={() => setMenuOpen(false)}
-            className="mt-3 block rounded-md border border-neon-cyan/50 bg-neon-cyan/10 px-4 py-2 text-center text-sm font-semibold text-gray-900 dark:text-neon-cyan"
-          >
-            Contact
-          </a>
+          <ContactNav className="mt-3 block text-center" onClick={() => setMenuOpen(false)} />
         </nav>
       )}
     </header>
