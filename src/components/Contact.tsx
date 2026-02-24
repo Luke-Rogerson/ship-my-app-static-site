@@ -1,0 +1,50 @@
+import { Linkedin, MessageCircle, Send } from 'lucide-react'
+import { CONTACT_LINKS } from '../config'
+import { ContactForm } from './ContactForm'
+
+const directLinks = [
+  { href: CONTACT_LINKS.linkedin, icon: Linkedin, label: 'LinkedIn', color: 'bg-[#0A66C2] hover:bg-[#004182]' },
+  { href: CONTACT_LINKS.whatsapp, icon: MessageCircle, label: 'WhatsApp', color: 'bg-[#25D366] hover:bg-[#1da851]' },
+  { href: CONTACT_LINKS.telegram, icon: Send, label: 'Telegram', color: 'bg-[#26A5E4] hover:bg-[#1e8cbf]' },
+] as const
+
+export function Contact() {
+  return (
+    <section id="contact" className="bg-gray-50 px-4 py-16 sm:px-6 dark:bg-gray-900/50">
+      <div className="mx-auto max-w-4xl">
+        <h2 className="text-2xl font-bold text-gray-900 sm:text-3xl dark:text-white">
+          Get in touch
+        </h2>
+        <p className="mt-3 text-gray-600 dark:text-gray-400">
+          Send your stack + where you're stuck + the #1 flow that must work.
+          I'll reply with the fastest path to a 48h triage and a rough cost band.
+        </p>
+
+        <div className="mt-10 grid gap-10 md:grid-cols-2">
+          <div>
+            <h3 className="mb-4 text-lg font-semibold text-gray-900 dark:text-white">Send a message</h3>
+            <ContactForm />
+          </div>
+
+          <div>
+            <h3 className="mb-4 text-lg font-semibold text-gray-900 dark:text-white">Or reach out directly</h3>
+            <div className="space-y-3">
+              {directLinks.map(({ href, icon: Icon, label, color }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`flex items-center gap-3 rounded-lg px-5 py-3 text-sm font-semibold text-white transition-colors ${color}`}
+                >
+                  <Icon size={20} />
+                  {label}
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
