@@ -2,7 +2,6 @@ import { Header } from './components/Header'
 import { Hero } from './components/Hero'
 import { WhoItsFor } from './components/WhoItsFor'
 import { WhoAmI } from './components/WhoAmI'
-import { Blueprint } from './components/Blueprint'
 import { Packages } from './components/Packages'
 import { HowItWorks } from './components/HowItWorks'
 import { Boundaries } from './components/Boundaries'
@@ -18,7 +17,6 @@ export function App() {
       <main>
         <Hero />
         <WhoItsFor />
-        <Blueprint />
         <Packages />
         <HowItWorks />
         <Boundaries />

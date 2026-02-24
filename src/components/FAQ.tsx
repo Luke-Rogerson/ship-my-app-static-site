@@ -7,12 +7,13 @@ const faqs = [
     a: "Absolutely \u2014 that's the most common starting point. The triage assesses what's live, what's broken, and what needs fixing to get to a stable production state.",
   },
   {
-    q: "What stacks do you support?",
-    a: "I specialize in Next.js/React + Supabase + Vercel (Blueprint A) and AWS-native Node.js stacks (Blueprint B). Outside these? The triage call will confirm whether I can help and the fastest path forward.",
-  },
-  {
-    q: "What if we're outside the blueprint?",
-    a: "The triage will confirm scope and feasibility. If the stack is close enough, I can adapt. If it's too far off, I'll tell you honestly and suggest alternatives.",
+    q: "What stacks do you work with?",
+    a: [
+      "JavaScript/TypeScript all the way through — React, Next.js, Node.js (Express, Fastify, NestJS).",
+      "I'm very comfortable with the stacks that come out of AI-assisted and vibe-coded projects: Supabase, Vercel, Clerk, Prisma, Drizzle, tRPC, Tailwind.",
+      "On the infrastructure side I work across AWS (ECS, Lambda, RDS, S3, CloudFront) and Vercel/Netlify.",
+      "I've worked with all sorts of stacks in my career, so if your stack is close to this world, I can almost certainly help. If it's not, I'll tell you honestly on the triage call.",
+    ],
   },
   {
     q: "How do payments work?",
@@ -56,8 +57,12 @@ export function FAQ() {
                   </button>
                 </dt>
                 {isOpen && (
-                  <dd className="mt-2 text-sm leading-relaxed text-gray-600 dark:text-gray-400">
-                    {faq.a}
+                  <dd className="mt-2 space-y-2 text-sm leading-relaxed text-gray-600 dark:text-gray-400">
+                    {Array.isArray(faq.a) ? (
+                      faq.a.map((p) => <p key={p}>{p}</p>)
+                    ) : (
+                      <p>{faq.a}</p>
+                    )}
                   </dd>
                 )}
               </div>

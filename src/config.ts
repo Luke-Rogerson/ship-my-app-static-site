@@ -14,7 +14,6 @@ export const EMAILJS = {
 
 export const NAV_ITEMS = [
   { label: 'Offer', href: '#offer' },
-  { label: 'Blueprint', href: '#blueprint' },
   { label: 'Packages', href: '#packages' },
   { label: 'How it works', href: '#how-it-works' },
   { label: 'Who am I', href: '#about' },
