@@ -20,9 +20,9 @@ export function Hero() {
             </span>
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-gray-600 sm:text-xl dark:text-gray-400">
-            Vibe-coded an app that's almost there? I'll bring the engineering
-            experience to get it over the line: stable, secure, and ready for
-            real users. Need something built from scratch? I do that too.
+            Got an app that's almost there? I'll get it production-ready:
+            stable, secure, and set up to stay healthy. Need something built
+            from scratch? I do that too.
           </p>
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
             <a
