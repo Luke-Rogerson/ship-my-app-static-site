@@ -5,7 +5,7 @@ export function WhoAmI() {
     <Section id="about" title="Who am I">
       <div className="mt-8 flex flex-col items-start gap-6 sm:flex-row sm:items-center">
         <img
-          src="/luke.jpeg"
+          src={`${import.meta.env.BASE_URL}luke.jpeg`}
           alt="Luke"
           className="h-24 w-24 shrink-0 rounded-full object-cover ring-2 ring-brand-600/30 ring-offset-2 ring-offset-white dark:ring-neon-cyan/40 dark:ring-offset-void-950"
         />
