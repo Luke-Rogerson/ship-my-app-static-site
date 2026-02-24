@@ -18,17 +18,16 @@ export function Hero() {
           </span>
         </h1>
         <p className="mt-6 text-lg leading-relaxed text-gray-600 sm:text-xl dark:text-gray-400">
-          If you have an app that mostly works but isn’t production-ready
-          (whether it was AI-assisted, vibe-coded, or traditionally built) I’ll
-          take it from demo-ready to production-ready fast: stabilize it, lock
-          down the basics, and add guardrails to keep it healthy after launch.
+          Got an app that's almost there? I'll get it production-ready: stable,
+          secure, and set up to stay healthy. Need something built from scratch?
+          I do that too.
         </p>
         <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
           <a
             href="#contact"
             className="rounded-md bg-brand-600 px-6 py-3 text-base font-semibold text-white transition-all hover:bg-brand-700 dark:bg-neon-cyan dark:text-void-950 dark:hover:glow-cyan-strong dark:hover:bg-neon-cyan/90"
           >
-            Get started
+            Let's talk
           </a>
           <a
             href="#packages"
