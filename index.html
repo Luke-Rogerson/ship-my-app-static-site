@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Ship My App — Prototype → Production, without the rewrite spiral</title>
+    <meta name="description" content="Got an AI-assisted or vibe-coded app that mostly works but isn't production-ready? Ship My App helps you stabilize, harden, and ship it fast." />
+    <meta name="robots" content="index, follow" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Ship My App — Prototype → Production" />
+    <meta property="og:description" content="Stabilize your fragile MVP and ship it to production with guardrails. Fixed-scope sprints, no open-ended consulting." />
+    <meta property="og:url" content="https://shipmyapp.dev" />
+    <meta property="og:image" content="./og-image.png" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Ship My App — Prototype → Production" />
+    <meta name="twitter:description" content="Stabilize your fragile MVP and ship it to production with guardrails." />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+    <script>
+      (function () {
+        const stored = localStorage.getItem('theme');
+        if (stored === 'light' || (!stored && !window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.remove('dark');
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
