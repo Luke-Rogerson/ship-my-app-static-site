@@ -33,7 +33,7 @@ export function FAQ() {
         <h2 className="text-2xl font-bold text-gray-900 sm:text-3xl dark:text-white">
           Frequently asked questions
         </h2>
-        <dl className="mt-8 divide-y divide-gray-200 dark:divide-gray-800">
+        <dl className="mt-8 divide-y divide-gray-200 dark:divide-neon-cyan/10">
           {faqs.map((faq, i) => {
             const isOpen = openIndex === i
             return (
@@ -47,7 +47,7 @@ export function FAQ() {
                     <span className="font-medium text-gray-900 dark:text-white">{faq.q}</span>
                     <ChevronDown
                       size={18}
-                      className={`shrink-0 text-gray-400 transition-transform ${isOpen ? 'rotate-180' : ''}`}
+                      className={`shrink-0 text-gray-400 transition-transform dark:text-neon-cyan/50 ${isOpen ? 'rotate-180' : ''}`}
                     />
                   </button>
                 </dt>

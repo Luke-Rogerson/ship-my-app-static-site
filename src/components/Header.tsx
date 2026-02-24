@@ -14,10 +14,10 @@ export function Header() {
   const { isDark, toggle } = useDarkMode()
 
   return (
-    <header className="sticky top-0 z-50 border-b border-gray-200 bg-white/80 backdrop-blur-md dark:border-gray-800 dark:bg-gray-950/80">
+    <header className="sticky top-0 z-50 border-b border-gray-200 bg-white/80 backdrop-blur-xl dark:border-neon-cyan/10 dark:bg-void-950/80">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
-        <a href="#" className="text-lg font-bold tracking-tight text-gray-900 dark:text-white">
-          {BRAND_NAME}
+        <a href="#" className="font-mono text-lg font-bold tracking-tight text-gray-900 dark:text-neon-cyan dark:text-glow-cyan">
+          {'>'} {BRAND_NAME}
         </a>
 
         <nav className="hidden items-center gap-6 md:flex" aria-label="Main navigation">
@@ -25,7 +25,7 @@ export function Header() {
             <a
               key={item.href}
               href={item.href}
-              className="text-sm font-medium text-gray-600 transition-colors hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+              className="text-sm font-medium text-gray-600 transition-colors hover:text-gray-900 dark:text-gray-400 dark:hover:text-neon-cyan"
             >
               {item.label}
             </a>
@@ -40,7 +40,7 @@ export function Header() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={label}
-              className="rounded-md p-2 text-gray-500 transition-colors hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-white"
+              className="rounded-md p-2 text-gray-500 transition-colors hover:bg-gray-100 hover:text-gray-900 dark:text-gray-500 dark:hover:bg-neon-cyan/10 dark:hover:text-neon-cyan"
             >
               <Icon size={18} />
             </a>
@@ -49,14 +49,14 @@ export function Header() {
           <button
             onClick={toggle}
             aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-            className="rounded-md p-2 text-gray-500 transition-colors hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-white"
+            className="rounded-md p-2 text-gray-500 transition-colors hover:bg-gray-100 hover:text-gray-900 dark:text-gray-500 dark:hover:bg-neon-cyan/10 dark:hover:text-neon-cyan"
           >
             {isDark ? <Sun size={18} /> : <Moon size={18} />}
           </button>
 
           <a
             href="#contact"
-            className="ml-2 rounded-lg bg-brand-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-brand-700"
+            className="ml-2 rounded-md border border-neon-cyan/50 bg-neon-cyan/10 px-4 py-2 text-sm font-semibold text-gray-900 transition-all hover:bg-brand-600 hover:text-white dark:text-neon-cyan dark:hover:bg-neon-cyan/20 dark:hover:glow-cyan"
           >
             Contact
           </a>
@@ -73,7 +73,7 @@ export function Header() {
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
-            className="rounded-md p-2 text-gray-500 dark:text-gray-400"
+            className="rounded-md p-2 text-gray-500 dark:text-neon-cyan"
           >
             {menuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
@@ -81,13 +81,13 @@ export function Header() {
       </div>
 
       {menuOpen && (
-        <nav className="border-t border-gray-200 px-4 pb-4 pt-2 md:hidden dark:border-gray-800" aria-label="Mobile navigation">
+        <nav className="border-t border-gray-200 bg-white px-4 pb-4 pt-2 md:hidden dark:border-neon-cyan/10 dark:bg-void-950" aria-label="Mobile navigation">
           {NAV_ITEMS.map((item) => (
             <a
               key={item.href}
               href={item.href}
               onClick={() => setMenuOpen(false)}
-              className="block py-2 text-sm font-medium text-gray-600 dark:text-gray-400"
+              className="block py-2 text-sm font-medium text-gray-600 dark:text-gray-400 dark:hover:text-neon-cyan"
             >
               {item.label}
             </a>
@@ -100,7 +100,7 @@ export function Header() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={label}
-                className="rounded-md p-2 text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-800"
+                className="rounded-md p-2 text-gray-500 hover:bg-gray-100 dark:text-gray-500 dark:hover:bg-neon-cyan/10 dark:hover:text-neon-cyan"
               >
                 <Icon size={18} />
               </a>
@@ -109,7 +109,7 @@ export function Header() {
           <a
             href="#contact"
             onClick={() => setMenuOpen(false)}
-            className="mt-3 block rounded-lg bg-brand-600 px-4 py-2 text-center text-sm font-semibold text-white"
+            className="mt-3 block rounded-md border border-neon-cyan/50 bg-neon-cyan/10 px-4 py-2 text-center text-sm font-semibold text-gray-900 dark:text-neon-cyan"
           >
             Contact
           </a>

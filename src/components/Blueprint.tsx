@@ -10,11 +10,14 @@ export function Blueprint() {
         </p>
 
         <div className="mt-8 grid gap-6 md:grid-cols-2">
-          <div className="rounded-lg border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-gray-900">
+          <div className="rounded-lg border border-gray-200 bg-white p-6 transition-colors dark:cyber-border dark:bg-void-800 dark:hover:border-neon-cyan/40">
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-              Blueprint A <span className="ml-2 text-sm font-normal text-brand-600 dark:text-brand-500">(default, fastest)</span>
+              Blueprint A{' '}
+              <span className="ml-2 font-mono text-sm font-normal text-brand-600 dark:text-neon-cyan dark:text-glow-cyan">
+                (default, fastest)
+              </span>
             </h3>
-            <ul className="mt-4 space-y-2 text-sm text-gray-600 dark:text-gray-400">
+            <ul className="mt-4 space-y-2 font-mono text-sm text-gray-600 dark:text-gray-400">
               <li>Next.js / React (TypeScript)</li>
               <li>Supabase (Auth + Postgres + Storage, RLS/policies)</li>
               <li>Stripe</li>
@@ -22,11 +25,14 @@ export function Blueprint() {
             </ul>
           </div>
 
-          <div className="rounded-lg border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-gray-900">
+          <div className="rounded-lg border border-gray-200 bg-white p-6 transition-colors dark:cyber-border dark:bg-void-800 dark:hover:border-neon-magenta/40">
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-              Blueprint B <span className="ml-2 text-sm font-normal text-gray-500">(AWS-native / heavier backend)</span>
+              Blueprint B{' '}
+              <span className="ml-2 font-mono text-sm font-normal text-gray-500 dark:text-neon-magenta">
+                (AWS-native / heavier backend)
+              </span>
             </h3>
-            <ul className="mt-4 space-y-2 text-sm text-gray-600 dark:text-gray-400">
+            <ul className="mt-4 space-y-2 font-mono text-sm text-gray-600 dark:text-gray-400">
               <li>React / Next.js (TypeScript)</li>
               <li>Node.js API (Express/Fastify/NestJS)</li>
               <li>Postgres (RDS) or Supabase Postgres</li>

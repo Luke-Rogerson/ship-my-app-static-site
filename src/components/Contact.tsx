@@ -3,14 +3,32 @@ import { CONTACT_LINKS } from '../config'
 import { ContactForm } from './ContactForm'
 
 const directLinks = [
-  { href: CONTACT_LINKS.linkedin, icon: Linkedin, label: 'LinkedIn', color: 'bg-[#0A66C2] hover:bg-[#004182]' },
-  { href: CONTACT_LINKS.whatsapp, icon: MessageCircle, label: 'WhatsApp', color: 'bg-[#25D366] hover:bg-[#1da851]' },
-  { href: CONTACT_LINKS.telegram, icon: Send, label: 'Telegram', color: 'bg-[#26A5E4] hover:bg-[#1e8cbf]' },
+  {
+    href: CONTACT_LINKS.linkedin,
+    icon: Linkedin,
+    label: 'LinkedIn',
+    light: 'bg-[#0A66C2] hover:bg-[#004182]',
+    dark: 'dark:bg-[#0A66C2]/20 dark:text-[#4d9de0] dark:border dark:border-[#0A66C2]/40 dark:hover:bg-[#0A66C2]/30',
+  },
+  {
+    href: CONTACT_LINKS.whatsapp,
+    icon: MessageCircle,
+    label: 'WhatsApp',
+    light: 'bg-[#25D366] hover:bg-[#1da851]',
+    dark: 'dark:bg-[#25D366]/20 dark:text-[#25D366] dark:border dark:border-[#25D366]/40 dark:hover:bg-[#25D366]/30',
+  },
+  {
+    href: CONTACT_LINKS.telegram,
+    icon: Send,
+    label: 'Telegram',
+    light: 'bg-[#26A5E4] hover:bg-[#1e8cbf]',
+    dark: 'dark:bg-[#26A5E4]/20 dark:text-[#26A5E4] dark:border dark:border-[#26A5E4]/40 dark:hover:bg-[#26A5E4]/30',
+  },
 ] as const
 
 export function Contact() {
   return (
-    <section id="contact" className="bg-gray-50 px-4 py-16 sm:px-6 dark:bg-gray-900/50">
+    <section id="contact" className="bg-gray-50 px-4 py-16 sm:px-6 dark:bg-void-900">
       <div className="mx-auto max-w-4xl">
         <h2 className="text-2xl font-bold text-gray-900 sm:text-3xl dark:text-white">
           Get in touch
@@ -29,13 +47,13 @@ export function Contact() {
           <div>
             <h3 className="mb-4 text-lg font-semibold text-gray-900 dark:text-white">Or reach out directly</h3>
             <div className="space-y-3">
-              {directLinks.map(({ href, icon: Icon, label, color }) => (
+              {directLinks.map(({ href, icon: Icon, label, light, dark }) => (
                 <a
                   key={label}
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`flex items-center gap-3 rounded-lg px-5 py-3 text-sm font-semibold text-white transition-colors ${color}`}
+                  className={`flex items-center gap-3 rounded-lg px-5 py-3 text-sm font-semibold text-white transition-all ${light} ${dark}`}
                 >
                   <Icon size={20} />
                   {label}
