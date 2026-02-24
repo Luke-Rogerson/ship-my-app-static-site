@@ -135,25 +135,6 @@ export function Packages() {
                   ))}
                 </ul>
 
-                {"acceptance" in pkg && pkg.acceptance && (
-                  <div className="mt-4 rounded-md border border-gray-100 bg-gray-50 p-3 dark:border-neon-cyan/10 dark:bg-void-900">
-                    <p className="mb-2 font-mono text-xs font-semibold uppercase tracking-widest text-gray-500 dark:text-neon-cyan/60">
-                      Acceptance criteria
-                    </p>
-                    <ul className="space-y-1">
-                      {pkg.acceptance.map((item) => (
-                        <li
-                          key={item}
-                          className="flex items-start gap-2 text-xs text-gray-600 dark:text-gray-400"
-                        >
-                          <span className="mt-1 h-1 w-1 shrink-0 rounded-full bg-gray-400 dark:bg-gray-600" />
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-
                 <p className="mt-4 border-t border-gray-100 pt-4 font-mono text-sm font-medium text-gray-800 dark:border-gray-800 dark:text-gray-200">
                   {pkg.price}
                 </p>

@@ -1,51 +1,52 @@
-import { Linkedin, MessageCircle, Send } from 'lucide-react'
-import { CONTACT_LINKS } from '../config'
-import { ContactForm } from './ContactForm'
+import { Linkedin, Send } from "lucide-react";
+import { CONTACT_LINKS } from "../config";
+import { ContactForm } from "./ContactForm";
 
 const directLinks = [
   {
     href: CONTACT_LINKS.linkedin,
     icon: Linkedin,
-    label: 'LinkedIn',
-    light: 'bg-[#0A66C2] hover:bg-[#004182]',
-    dark: 'dark:bg-[#0A66C2]/20 dark:text-[#4d9de0] dark:border dark:border-[#0A66C2]/40 dark:hover:bg-[#0A66C2]/30',
-  },
-  {
-    href: CONTACT_LINKS.whatsapp,
-    icon: MessageCircle,
-    label: 'WhatsApp',
-    light: 'bg-[#25D366] hover:bg-[#1da851]',
-    dark: 'dark:bg-[#25D366]/20 dark:text-[#25D366] dark:border dark:border-[#25D366]/40 dark:hover:bg-[#25D366]/30',
+    label: "LinkedIn",
+    light: "bg-[#0A66C2] hover:bg-[#004182]",
+    dark: "dark:bg-[#0A66C2]/20 dark:text-[#4d9de0] dark:border dark:border-[#0A66C2]/40 dark:hover:bg-[#0A66C2]/30",
   },
   {
     href: CONTACT_LINKS.telegram,
     icon: Send,
-    label: 'Telegram',
-    light: 'bg-[#26A5E4] hover:bg-[#1e8cbf]',
-    dark: 'dark:bg-[#26A5E4]/20 dark:text-[#26A5E4] dark:border dark:border-[#26A5E4]/40 dark:hover:bg-[#26A5E4]/30',
+    label: "Telegram",
+    light: "bg-[#26A5E4] hover:bg-[#1e8cbf]",
+    dark: "dark:bg-[#26A5E4]/20 dark:text-[#26A5E4] dark:border dark:border-[#26A5E4]/40 dark:hover:bg-[#26A5E4]/30",
   },
-] as const
+] as const;
 
 export function Contact() {
   return (
-    <section id="contact" className="bg-gray-50 px-4 py-16 sm:px-6 dark:bg-void-900">
+    <section
+      id="contact"
+      className="bg-gray-50 px-4 py-16 sm:px-6 dark:bg-void-900"
+    >
       <div className="mx-auto max-w-4xl">
         <h2 className="text-2xl font-bold text-gray-900 sm:text-3xl dark:text-white">
           Get in touch
         </h2>
         <p className="mt-3 text-gray-600 dark:text-gray-400">
           Send your stack + where you're stuck + the #1 flow that must work.
-          I'll reply with the fastest path to a 48h triage and a rough cost band.
+          I'll reply with the fastest path to a 48h triage and a rough cost
+          band.
         </p>
 
         <div className="mt-10 grid gap-10 md:grid-cols-2">
           <div>
-            <h3 className="mb-4 text-lg font-semibold text-gray-900 dark:text-white">Send a message</h3>
+            <h3 className="mb-4 text-lg font-semibold text-gray-900 dark:text-white">
+              Send a message
+            </h3>
             <ContactForm />
           </div>
 
           <div>
-            <h3 className="mb-4 text-lg font-semibold text-gray-900 dark:text-white">Or reach out directly</h3>
+            <h3 className="mb-4 text-lg font-semibold text-gray-900 dark:text-white">
+              Or reach out directly
+            </h3>
             <div className="space-y-3">
               {directLinks.map(({ href, icon: Icon, label, light, dark }) => (
                 <a
@@ -64,5 +65,5 @@ export function Contact() {
         </div>
       </div>
     </section>
-  )
+  );
 }

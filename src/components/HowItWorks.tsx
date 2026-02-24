@@ -32,9 +32,9 @@ export function HowItWorks() {
           {steps.map((step, i) => (
             <div key={step.number} className="relative flex gap-4 md:flex-col md:gap-0">
               {i < steps.length - 1 && (
-                <div className="absolute left-5 top-10 h-full w-px bg-gray-200 md:left-auto md:right-0 md:top-5 md:h-px md:w-full dark:bg-neon-cyan/20" />
+                <div className="absolute left-5 top-10 z-0 h-full w-px bg-gray-200 md:left-10 md:right-0 md:top-5 md:h-px md:w-auto dark:bg-neon-cyan/20" />
               )}
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md font-mono text-sm font-bold text-white bg-brand-600 dark:bg-neon-cyan/20 dark:text-neon-cyan dark:cyber-border-bright">
+              <div className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-brand-600 font-mono text-sm font-bold text-white dark:bg-[#063947] dark:text-neon-cyan dark:cyber-border-bright">
                 {step.number}
               </div>
               <div className="md:mt-4">

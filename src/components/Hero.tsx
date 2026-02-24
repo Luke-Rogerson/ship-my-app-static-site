@@ -1,3 +1,5 @@
+import { BRAND_NAME } from "../config";
+
 export function Hero() {
   return (
     <section
@@ -7,7 +9,7 @@ export function Hero() {
       <div className="pointer-events-none absolute inset-0 cyber-grid-bg dark:opacity-100 opacity-0" />
       <div className="relative mx-auto max-w-3xl text-center">
         <p className="mb-4 font-mono text-sm tracking-widest text-brand-600 uppercase dark:text-neon-cyan dark:text-glow-cyan">
-          Ship My App
+          {BRAND_NAME}
         </p>
         <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-6xl dark:text-white">
           Prototype → Production,{" "}
