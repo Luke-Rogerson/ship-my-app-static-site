@@ -1,4 +1,6 @@
 @import 'tailwindcss';
+@plugin "@tailwindcss/typography";
+@source "../scripts/build-blog.ts";
 
 @custom-variant dark (&:where(.dark, .dark *));
 

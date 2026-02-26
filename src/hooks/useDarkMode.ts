@@ -6,6 +6,10 @@ function getSnapshot(): boolean {
   return document.documentElement.classList.contains('dark')
 }
 
+function getServerSnapshot(): boolean {
+  return true
+}
+
 function subscribe(callback: () => void): () => void {
   const observer = new MutationObserver(callback)
   observer.observe(document.documentElement, {
@@ -16,7 +20,7 @@ function subscribe(callback: () => void): () => void {
 }
 
 export function useDarkMode() {
-  const isDark = useSyncExternalStore(subscribe, getSnapshot)
+  const isDark = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot)
 
   const toggle = useCallback(() => {
     const next = !document.documentElement.classList.contains('dark')
